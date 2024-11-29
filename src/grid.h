@@ -1,4 +1,4 @@
-#pragma once //ensures the header file is included only once during compilation
+#pragma once // ensures the header file is included only once during compilation
 #include <iostream>
 #include <raylib.h>
 #include <vector>
@@ -17,5 +17,6 @@ public:
     void Initialize();
     void Print();
     void Draw();
+    bool IsCellOutside(int row, int column);
     int grid[20][10];
 };

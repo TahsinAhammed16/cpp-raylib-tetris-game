@@ -10,6 +10,7 @@ private:
     vector<Block> blocks;
     Block currentBlock;
     Block nextBlock;
+      bool IsBlockOutside();
 
 public:
     Game();
@@ -22,4 +23,3 @@ public:
     void MoveBlockRight();
     void MoveBlockDown();
 };
-
