@@ -11,7 +11,7 @@ Block::Block()
 
 void Block::Draw()
 {
-    vector<Position> tiles = GetCellPositions();  // cells[rotationState];
+    vector<Position> tiles = GetCellPositions(); // cells[rotationState];
     for (Position item : tiles)
     {
         DrawRectangle(item.column * cellSize + 1, item.row * cellSize + 1, cellSize - 1, cellSize - 1, colors[id]);
@@ -34,4 +34,13 @@ vector<Position> Block::GetCellPositions()
         movedTiles.push_back(newPos);
     }
     return movedTiles;
+}
+
+void Block::Rotate()
+{
+    rotationState++;
+    if (rotationState == (int)cells.size())
+    {
+        rotationState = 0;
+    }
 }

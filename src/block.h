@@ -22,4 +22,5 @@ public:
     void Draw();
     void Move(int rows, int columns);
     vector<Position> GetCellPositions();
+    void Rotate();
 };

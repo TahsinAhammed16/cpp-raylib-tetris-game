@@ -10,7 +10,8 @@ private:
     vector<Block> blocks;
     Block currentBlock;
     Block nextBlock;
-      bool IsBlockOutside();
+    bool IsBlockOutside();
+    void RotateBlock();
 
 public:
     Game();
