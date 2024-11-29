@@ -1,5 +1,6 @@
 #include <raylib.h>
 #include "grid.h"
+#include "blocks.cpp"
 
 int main()
 {
@@ -9,16 +10,18 @@ int main()
     SetTargetFPS(60);
 
     Grid grid = Grid();
-    grid.grid[0][0] = 1;
-    grid.grid[6][7] = 5;
-    grid.grid[16][12] = 4;
+    // test cases
+    // grid.grid[0][0] = 1;
     grid.Print();
+
+    TBlock block = TBlock();
 
     while (!WindowShouldClose())
     {
         BeginDrawing();
         ClearBackground(darkBlue);
         grid.Draw();
+        block.Draw();
         EndDrawing();
     }
 
