@@ -73,7 +73,7 @@ void Game::MoveBlockRight()
 void Game::MoveBlockDown()
 {
     currentBlock.Move(1, 0);
-    if (IsBlockOutside())
+    if (IsBlockOutside() || BlockFits() == false)
     {
         currentBlock.Move(-1, 0);
         LockBlock();
@@ -110,7 +110,18 @@ void Game::LockBlock()
         grid.grid[item.row][item.column] = currentBlock.id;
     }
     currentBlock = nextBlock;
-   
     nextBlock = GetRandomBlock();
-   
+}
+
+bool Game::BlockFits()
+{
+    vector<Position> tiles = currentBlock.GetCellPositions();
+    for (Position item : tiles)
+    {
+        if (grid.IsCellEmpty(item.row, item.column) == false)
+        {
+            return false;
+        }
+    }
+    return true;
 }

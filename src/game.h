@@ -13,6 +13,7 @@ private:
     bool IsBlockOutside();
     void RotateBlock();
     void  LockBlock();
+    bool BlockFits();
 
 public:
     Game();
