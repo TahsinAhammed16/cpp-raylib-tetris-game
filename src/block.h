@@ -19,7 +19,7 @@ public:
     Block();
     int id;
     map<int, vector<Position>> cells; // map to store rotation states and their corresponding cells
-    void Draw();
+    void Draw(int offsetX, int offSetY);
     void Move(int rows, int columns);
     vector<Position> GetCellPositions();
     void Rotate();
