@@ -12,9 +12,10 @@ private:
     Block nextBlock;
     bool IsBlockOutside();
     void RotateBlock();
-    void  LockBlock();
+    void LockBlock();
     bool BlockFits();
     void Reset();
+     void UpdateScore(int linesCleared, int moveDownPoints);
 
 public:
     Game();
@@ -27,4 +28,5 @@ public:
     void MoveBlockLeft();
     void MoveBlockRight();
     void MoveBlockDown();
+    int score;
 };

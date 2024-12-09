@@ -47,7 +47,7 @@ void Grid::Draw()
         {
             int cellValue = grid[row][column];
 
-            DrawRectangle(column * cellSize + 1, row * cellSize + 1, cellSize - 1, cellSize - 1, colors[cellValue]); // draw a grid cell with a 1-pixel border for visual separation
+            DrawRectangle(column * cellSize + 11, row * cellSize + 11, cellSize - 1, cellSize - 1, colors[cellValue]); // draw a grid cell with a 1-pixel border for visual separation
         }
     }
 }
