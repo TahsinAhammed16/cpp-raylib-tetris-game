@@ -14,6 +14,7 @@ private:
     void RotateBlock();
     void  LockBlock();
     bool BlockFits();
+    void Reset();
 
 public:
     Game();
@@ -21,6 +22,7 @@ public:
     vector<Block> GetAllBlocks();
     void Draw();
     Grid grid;
+    bool gameOver;
     void HandleInput();
     void MoveBlockLeft();
     void MoveBlockRight();
