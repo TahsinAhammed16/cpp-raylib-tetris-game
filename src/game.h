@@ -15,10 +15,14 @@ private:
     void LockBlock();
     bool BlockFits();
     void Reset();
-     void UpdateScore(int linesCleared, int moveDownPoints);
+    void UpdateScore(int linesCleared, int moveDownPoints);
+    Sound rotateSound;
+    Sound clearSound;
+
 
 public:
     Game();
+    ~Game();
     Block GetRandomBlock();
     vector<Block> GetAllBlocks();
     void Draw();
@@ -29,4 +33,5 @@ public:
     void MoveBlockRight();
     void MoveBlockDown();
     int score;
+    Music music;
 };
