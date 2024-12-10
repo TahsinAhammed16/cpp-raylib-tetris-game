@@ -7,7 +7,7 @@ const Color orange = {240, 130, 30, 255};
 const Color yellow = {250, 240, 30, 255};  
 const Color purple = {180, 10, 255, 255};  
 const Color cyan = {30, 220, 225, 255};    
-const Color blue = {20, 70, 250, 255};     
+const Color blue =  {100, 150, 255, 255};     
 const Color lightBlue = {70, 100, 180, 255}; 
 const Color darkBlue = {50, 50, 150, 255};  
 

@@ -18,8 +18,8 @@ bool EventTriggered(double interval)
 int main()
 {
     Color darkBlue = {38, 70, 129, 255};
-    Color lightBlue = {59, 85, 162, 255};     
-    Color borderColor = {255, 255, 255, 200}; 
+    Color lightBlue = {59, 85, 162, 255};
+    Color borderColor = {255, 255, 255, 200};
 
     InitWindow(500, 620, "Raylib Tetris");
     SetTargetFPS(60);
@@ -27,6 +27,9 @@ int main()
     Font font = LoadFontEx("fonts/monogram.ttf", 64, 0, 0);
     Game game = Game();
     bool gameStarted = false;
+
+    // Load the background image
+    Texture2D bgImage = LoadTexture("resources/background.png");
 
     while (!WindowShouldClose())
     {
@@ -43,8 +46,11 @@ int main()
             BeginDrawing();
             ClearBackground(darkBlue);
 
-            DrawRectangle(320, 55, 170, 60, lightBlue);        
-            DrawRectangleLines(320, 55, 170, 60, borderColor); 
+            // Draw the background image
+            DrawTexture(bgImage, 0, 0, WHITE);
+
+            DrawRectangle(320, 55, 170, 60, lightBlue);
+            DrawRectangleLines(320, 55, 170, 60, borderColor);
             DrawTextEx(font, "Score", (Vector2){365, 15}, 38, 2, WHITE);
 
             char scoreText[10];
@@ -52,9 +58,8 @@ int main()
             float scoreTextWidth = MeasureTextEx(font, scoreText, 38, 2).x;
             DrawTextEx(font, scoreText, (Vector2){320 + (170 - scoreTextWidth) / 2, 65}, 38, 2, WHITE);
 
-            // Next Section with Border
-            DrawRectangle(320, 215, 170, 180, lightBlue);        
-            DrawRectangleLines(320, 215, 170, 180, borderColor); 
+            DrawRectangle(320, 215, 170, 180, lightBlue);
+            DrawRectangleLines(320, 215, 170, 180, borderColor);
             DrawTextEx(font, "Next", (Vector2){370, 175}, 38, 2, WHITE);
 
             // Display the game grid and blocks
@@ -62,9 +67,9 @@ int main()
 
             if (game.gameOver)
             {
-                DrawRectangle(150, 450, 200, 60, lightBlue);                       
-                DrawRectangleLines(150, 450, 200, 60, borderColor);                
-                DrawTextEx(font, "GAME OVER!", (Vector2){180, 465}, 28, 2, WHITE); 
+                DrawRectangle(150, 450, 200, 60, lightBlue);
+                DrawRectangleLines(150, 450, 200, 60, borderColor);
+                DrawTextEx(font, "GAME OVER!", (Vector2){180, 465}, 28, 2, WHITE);
             }
 
             EndDrawing();
@@ -78,6 +83,8 @@ int main()
 
             BeginDrawing();
             ClearBackground(darkBlue);
+
+            DrawTexture(bgImage, 0, 0, WHITE);
 
             const char gameName[] = "TETRIS";
             int gameNameWidth = MeasureText(gameName, 64);
@@ -104,6 +111,7 @@ int main()
             EndDrawing();
         }
     }
+    UnloadTexture(bgImage);
 
     CloseWindow();
     return 0;
